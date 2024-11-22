@@ -1,0 +1,27 @@
+@use "../utils/variables" as var;
+
+*,
+*::before,
+*::after {
+  margin: 0 auto;
+  padding: 0 8px;
+  box-sizing: border-box;
+  font-family: "Rubik", serif;
+}
+.container {
+  max-width: 1440px;
+}
+ul {
+  display: flex;
+  align-items: center;
+  li {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+
+    a {
+      text-decoration: none;
+      color: var.$text-color;
+    }
+  }
+}

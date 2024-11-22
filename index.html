@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
+  <body>
+    <section>
+      <header>
+        <div class="container">
+          <nav>
+            <div class="brend-cotalog-search-div">
+              <a href="/">
+                <img src="./assets/images/brend.png" alt="brend" />
+              </a>
+              <div class="menu-btn-cotalog toggle">
+                <img src="./assets/icon/menu.png" alt="menu" />
+                <p>Каталог</p>
+              </div>
+              <input type="text" placeholder="Найти товар" />
+              <img
+                class="search-img"
+                src="./assets/icon/search.png"
+                alt="search"
+              />
+            </div>
+            <div class="menu">
+              <ul>
+                <li>
+                  <img src="./assets/icon/love.png" alt="" />
+                  <a href="">Избранное</a>
+                </li>
+                <li>
+                  <img src="./assets/icon/box.png" alt="" />
+                  <a href="">Заказы</a>
+                </li>
+                <li>
+                  <img src="./assets/icon/shopping-cart.png" alt="" />
+                  <a href="">Корзина</a>
+                </li>
+              </ul>
+              <div class="user">
+                <img src="./assets/icon/avatar.png" alt="" />
+                Алексей
+                <img
+                  class="indicator"
+                  src="./assets/icon/indicator.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div class="cotalof-menu">
+        <ul>
+          <li><a href="#">Молоко, сыр, яйцо</a></li>
+          <li><a href="#">Хлеб</a></li>
+          <li><a href="#">Фрукты и овощи</a></li>
+          <li><a href="#">Замороженные продукты</a></li>
+          <li><a href="#">Напитки</a></li>
+          <li><a href="#">Кондитерские изделия</a></li>
+          <li><a href="#">Чай, кофе</a></li>
+          <li><a href="#">Бакалея</a></li>
+          <li><a href="#">Здоровое питание</a></li>
+          <li><a href="#">Зоотовары</a></li>
+          <li><a href="#">Непродовольственные товары</a></li>
+          <li><a href="#">Детское питание</a></li>
+          <li><a href="#">Мясо, птица, колбаса</a></li>
+        </ul>
+      </div>
+    </section>
+    <!-- slider-ection -->
+    <section class="dostavka-bg">
+      <div class="container">
+        <div class="home-slider"></div>
+        <div class="product-count"></div>
+      </div>
+    </section>
+
+    <!-- products-section -->
+    <section>
+      <div class="container">
+        <div class="allProducts-row card-producs"></div>
+      </div>
+    </section>
+    <script src="./js/home-data.js"></script>
+    <script src="./js/home.js"></script>
+  </body>
+</html>

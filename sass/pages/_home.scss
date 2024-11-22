@@ -1,0 +1,24 @@
+@use "../utils/mixins" as mxn;
+@use "../utils/variables" as var;
+
+.dostavka-bg {
+  background: url(../../assets/images/dostavka-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 100%;
+}
+.sliders {
+  @include mxn.flex(center, space-around, none);
+
+  @media (max-width: 565px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  img {
+    max-width: 100%;
+  }
+  h1 {
+    text-align: center;
+  }
+}
