@@ -1,22 +1,36 @@
 @use "../utils/variables" as var;
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 *,
 *::before,
 *::after {
-  margin: 0 auto;
-  padding: 0 8px;
   box-sizing: border-box;
   font-family: "Rubik", serif;
 }
+html,
+body {
+  background: var.$colour-secondary;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 .container {
-  max-width: 1440px;
+  max-width: 1920px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 ul {
   display: flex;
   align-items: center;
   li {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     list-style-type: none;
 
     a {

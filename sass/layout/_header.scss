@@ -1,78 +1,122 @@
 @use "../utils/mixins" as mxn;
 @use "../utils/variables" as var;
 
-header {
-  nav {
-    @include mxn.flex(center, space-between, none);
-    padding: 16px 0;
+.ehaderSC {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  header {
+    background: var.$colour-white;
+    box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.1);
 
-    @media (max-width: 768px) {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .brend-cotalog-search-div {
-      @include mxn.flex(center, space-between, center);
-      display: flex;
-      gap: 20px;
-
-      @media (max-width: 505px) {
-        display: flex;
-        flex-direction: inherit;
-        align-items: center;
-      }
-
-      .search-img {
-        position: relative;
-        right: 8vh;
-
-        @media (max-width: 505px) {
-          position: relative;
-          bottom: 6vh;
-          left: 12vh;
-        }
-      }
-      max-width: 100%;
-    }
-    .menu {
-      @include mxn.flex(center, start, none);
+    nav {
+      @include mxn.flex(center, space-between, none);
+      padding: 16px 0;
 
       @media (max-width: 768px) {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-    }
-    .user {
-      @include mxn.flex(center, start, none);
-
-      @media (max-width: 1170px) {
         display: flex;
         flex-direction: column;
+        gap: 12px;
       }
-    }
-    .menu-btn-cotalog {
-      @include mxn.flex(center, none, none);
-      background: var.$colour-primary;
-      color: var.$colour-white;
-      padding: 8px 12px;
-      gap: 8px;
-      border-radius: 4px;
-      cursor: pointer;
 
-      @media (max-width: 768px) {
-        p {
-          display: none;
+      .brend-cotalog-search-div {
+        @include mxn.flex(center, space-between, center);
+        display: flex;
+        gap: 20px;
+
+        @media (max-width: 505px) {
+          display: flex;
+          flex-direction: inherit;
+          align-items: center;
+        }
+
+        .search-img {
+          position: relative;
+          right: 8vh;
+
+          @media (max-width: 505px) {
+            position: relative;
+            bottom: 6vh;
+            left: 12vh;
+          }
+        }
+        max-width: 100%;
+      }
+      .menu {
+        @include mxn.flex(center, start, 15px);
+
+        @media (max-width: 1120px) {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        @media (max-width: 1048px) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        @media (max-width: 768px) {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          align-items: center;
+        }
+
+        .header-ul {
+          @include mxn.flex(center, none, 12px);
+
+          @media (max-width: 1048px) {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .header-li {
+            @include mxn.flex(center, none, none);
+            flex-direction: column;
+            img {
+              width: 25px;
+            }
+          }
         }
       }
-    }
-    input {
-      padding: 12px 50px;
-      gap: 10px;
-      border-radius: 4px;
-      border: 1px solid rgba(112, 192, 91, 1);
-      outline: white;
+      .user {
+        @include mxn.flex(center, start, 10px);
+
+        @media (max-width: 1170px) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+      .menu-btn-cotalog {
+        @include mxn.flex(center, none, none);
+        background: var.$colour-primary;
+        color: var.$colour-white;
+        padding: 8px 12px;
+        gap: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        @media (max-width: 768px) {
+          p {
+            display: none;
+          }
+        }
+      }
+      input {
+        width: 50vh;
+        height: 5vh;
+        padding-left: 10px;
+        // padding: 12px 50px;
+        gap: 10px;
+        border-radius: 4px;
+        border: 1px solid rgba(112, 192, 91, 1);
+        outline: white;
+
+        @media (max-width: 505px) {
+          width: 40vh;
+        }
+        @media (max-width: 365px) {
+          width: 30vh;
+        }
+      }
     }
   }
 }

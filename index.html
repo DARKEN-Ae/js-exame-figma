@@ -4,54 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="stylesheet" href="./css/main.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <section>
+    <section class="ehaderSC">
       <header>
         <div class="container">
-          <nav>
-            <div class="brend-cotalog-search-div">
-              <a href="/">
-                <img src="./assets/images/brend.png" alt="brend" />
-              </a>
-              <div class="menu-btn-cotalog toggle">
-                <img src="./assets/icon/menu.png" alt="menu" />
-                <p>Каталог</p>
-              </div>
-              <input type="text" placeholder="Найти товар" />
-              <img
-                class="search-img"
-                src="./assets/icon/search.png"
-                alt="search"
-              />
-            </div>
-            <div class="menu">
-              <ul>
-                <li>
-                  <img src="./assets/icon/love.png" alt="" />
-                  <a href="">Избранное</a>
-                </li>
-                <li>
-                  <img src="./assets/icon/box.png" alt="" />
-                  <a href="">Заказы</a>
-                </li>
-                <li>
-                  <img src="./assets/icon/shopping-cart.png" alt="" />
-                  <a href="">Корзина</a>
-                </li>
-              </ul>
-              <div class="user">
-                <img src="./assets/icon/avatar.png" alt="" />
-                Алексей
-                <img
-                  class="indicator"
-                  src="./assets/icon/indicator.png"
-                  alt=""
-                />
-              </div>
-            </div>
-          </nav>
+          <nav class="nav-ection nav-section-row"></nav>
         </div>
       </header>
       <div class="cotalof-menu">
@@ -79,14 +38,152 @@
         <div class="product-count"></div>
       </div>
     </section>
-
     <!-- products-section -->
-    <section>
+    <section class="actions-card-bg">
       <div class="container">
+        <!-- 1 -->
+        <div class="actsion">
+          <h1>Акции</h1>
+          <div class="all-actsion">
+            <p>Все акции</p>
+            <img src="./assets/icon/indicator.png" alt="" />
+          </div>
+        </div>
         <div class="allProducts-row card-producs"></div>
+        <!-- 2 -->
+        <div class="actsion">
+          <h1>Новинки</h1>
+          <div class="all-actsion">
+            <p>Все новинки</p>
+            <img src="./assets/icon/indicator.png" alt="" />
+          </div>
+        </div>
+        <div class="allProducts-row-two card-producs"></div>
+        <!-- 3 -->
+        <div class="actsion">
+          <h1>Покупали раньше</h1>
+          <div class="all-actsion">
+            <p>Все покупки</p>
+            <img src="./assets/icon/indicator.png" alt="" />
+          </div>
+        </div>
+        <div class="allProducts-row-three card-producs"></div>
       </div>
     </section>
+    <!-- Специальные предложения -->
+    <!-- <section class="special-offer-bg">
+      <div class="container">
+        <h1>Специальные предложения</h1>
+        <div class="special-offer-row">
+           
+          <div class="special-card">
+            <div class="in-card-texts">
+              <h3>Оформите карту «Северяночка»</h3>
+              <p>И получайте бонусы при покупке в магазинах и на сайте</p>
+            </div>
+            <img class="xz-sovun" src="./assets/images/xz-sovun.png" alt="" />
+          </div>
+         
+          <div
+            style="
+              background: rgba(229, 255, 222, 1);
+              box-shadow: 0px 8px 16px 0px #6cca6080;
+            "
+            class="special-card"
+          >
+            <div class="in-card-texts">
+              <h3>Покупайте акционные товары</h3>
+              <p>И получайте вдвое больше бонусов</p>
+            </div>
+            <img class="banner-img" src="./assets/images/banner.png" alt="" />
+          </div>
+        </div>
+        <div class="special-offer-row-two"></div>
+      </div>
+    </section> -->
+    <!-- magazine-location -->
+    <section class="magazine-location-bg">
+      <div class="container">
+        <h1>Наши магазины</h1>
+        <div class="magazine-location-row">
+          <div class="location-buttons">
+            <button onclick="changeMap('shchelyaiur')">п.Щельяюр</button>
+            <button onclick="changeMap('vertep')">д.Вертеп</button>
+            <button onclick="changeMap('krasnobor')">с.Краснобор</button>
+            <button onclick="changeMap('diyur')">д.Диюр</button>
+          </div>
+          <div class="location-map">
+            <iframe
+              id="location-map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13326.241046614055!2d53.39292342807273!3d65.3226580127258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4472340bbf53f20d%3A0x6aaf90d406ef7886!2sShchel&#39;yaiur%2C%20Komi%2C%20Rossiya!5e0!3m2!1suz!2s!4v1732334528413!5m2!1suz!2s"
+              width="737"
+              height="354"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- station-section -->
+    <section class="stati">
+      <div class="container">
+        <div class="actsion">
+          <h1>Статьи</h1>
+          <div class="all-actsion">
+            <p>Все статьи</p>
+            <img src="./assets/icon/indicator.png" alt="" />
+          </div>
+        </div>
+
+        <div class="in-three-cards"></div>
+      </div>
+    </section>
+    <!-- footer -->
+    <section>
+      <div class="container">
+        <footer class="custom-footer">
+          <div class="footer-frame">
+            <div class="footer-left">
+              <div class="footer-logo">
+                <img src="./assets/icon/logo.png" alt="Logo" />
+              </div>
+              <ul class="footer-links">
+                <li><a href="#">О компании</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Вакансии</a></li>
+                <li><a href="#">Статьи</a></li>
+                <li><a href="#">Политика обработки персональных данных</a></li>
+              </ul>
+            </div>
+            <div class="footer-right">
+              <div class="social-icons">
+                <a href="#"
+                  ><img src="./assets/icon/instagram.png" alt="Instagram"
+                /></a>
+                <a href="#"
+                  ><img src="./assets/icon/vkontakte.png" alt="VK"
+                /></a>
+                <a href="#"
+                  ><img src="./assets/icon/facebook.png" alt="Facebook"
+                /></a>
+                <a href="#"><img src="./assets/icon/ok.png" alt="OK" /></a>
+              </div>
+              <div class="footer-contact">
+                <img src="./assets/icon/phone.png" alt="" />
+                <span>8 800 777 33 33</span>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <!-- js-links -->
     <script src="./js/home-data.js"></script>
     <script src="./js/home.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/korzina.js"></script>
   </body>
 </html>

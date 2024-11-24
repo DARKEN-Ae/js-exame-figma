@@ -1,0 +1,187 @@
+.custom-footer {
+  background-color: #fdf8ea;
+  padding: 20px 0;
+
+  .footer-frame {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+
+        span {
+          font-size: 14px;
+          font-weight: bold;
+          color: #000;
+        }
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+
+        li {
+          list-style: none;
+
+          a {
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      .social-icons {
+        display: flex;
+        gap: 15px;
+
+        a img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .footer-contact {
+        font-size: 14px;
+        color: #000;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-design {
+        font-size: 14px;
+        color: #000;
+
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  // === Media Query: 768px va kichikroq ekranlar uchun ===
+  @media (max-width: 768px) {
+    .footer-frame {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+
+      .footer-left,
+      .footer-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 10px;
+
+        li {
+          a {
+            font-size: 12px; // Shrini kichraytirish
+          }
+        }
+      }
+
+      .footer-right {
+        flex-wrap: wrap;
+        gap: 15px;
+
+        .social-icons {
+          gap: 10px;
+
+          a img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .footer-contact {
+          font-size: 12px;
+        }
+
+        .footer-design {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  // === Media Query: 480px va kichikroq ekranlar uchun ===
+  @media (max-width: 480px) {
+    .footer-frame {
+      gap: 15px;
+
+      .footer-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+        .footer-logo {
+          img {
+            width: 30px;
+            height: 30px;
+          }
+
+          span {
+            font-size: 12px;
+          }
+        }
+
+        .footer-links {
+          gap: 5px;
+
+          li {
+            a {
+              font-size: 10px; // Kichik ekranlar uchun shrift
+            }
+          }
+        }
+      }
+
+      .footer-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+        .social-icons {
+          a img {
+            width: 18px;
+            height: 18px;
+          }
+        }
+
+        .footer-contact {
+          font-size: 12px;
+        }
+
+        .footer-design {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
