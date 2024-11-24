@@ -509,6 +509,92 @@
   text-align: center;
 }
 
+.page-links {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+}
+.page-links a {
+  text-decoration: none;
+  color: rgb(65, 65, 65);
+}
+.page-links img {
+  rotate: -90deg;
+}
+
+.korzinasc h1 {
+  color: rgb(65, 65, 65);
+  font-family: Rubik;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 96px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+.korzinasc .all-check {
+  display: flex;
+  align-items: center;
+  justify-content: none;
+  gap: 16px;
+}
+.korzinasc .all-check a {
+  text-decoration: none;
+}
+.korzinasc .all-check .minus {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: rgb(112, 192, 91);
+  border: 1px solid rgb(243, 242, 241);
+  text-align: center;
+  color: #fff;
+}
+.korzinasc .all-check .all-text {
+  color: rgb(65, 65, 65);
+  font-family: Rubik;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+.korzinasc .all-check .delete-sc {
+  color: rgb(255, 102, 51);
+  font-family: Rubik;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+.korzinasc .product-tovars {
+  background: rgb(255, 255, 255);
+  box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  width: 876px;
+  height: 72px;
+  gap: 16px;
+  display: flex;
+  border-radius: 4px;
+}
+.korzinasc .product-tovars .tovar-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+}
+.korzinasc .product-tovars .in-about {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 * {
   margin: 0;
   padding: 0;

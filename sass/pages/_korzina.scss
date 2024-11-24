@@ -1,0 +1,84 @@
+@use "../utils/mixins" as mxn;
+@use "../utils/variables" as var;
+
+.page-links {
+  @include mxn.flex(center, start, 8px);
+  a {
+    text-decoration: none;
+    color: var.$text-color;
+  }
+  img {
+    rotate: -90deg;
+  }
+}
+.korzinasc {
+  h1 {
+    color: var.$text-color;
+    font-family: Rubik;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 96px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+  .all-check {
+    @include mxn.flex(center, none, 16px);
+    a {
+      text-decoration: none;
+    }
+    .minus {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: rgba(112, 192, 91, 1);
+      border: 1px solid rgba(243, 242, 241, 1);
+      text-align: center;
+      color: #fff;
+    }
+    .all-text {
+      color: var.$text-color;
+      font-family: Rubik;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+      text-align: center;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+    .delete-sc {
+      color: var.$hover-color;
+      font-family: Rubik;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+      text-align: center;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+  }
+  .product-tovars {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    width: 876px;
+    height: 72px;
+    gap: 16px;
+    display: flex;
+    border-radius: 4px;
+
+    .tovar-card {
+      @include mxn.flex(flex-start, center, 16px);
+    }
+
+    .in-about {
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .add-or-remove {
+      .its-btn {
+      }
+    }
+  }
+}

@@ -22,7 +22,6 @@ const {
   userName,
   menuItems,
 } = headerData;
-
 function renderHeader() {
   headerContainer.innerHTML = `
     <div class="brend-cotalog-search-div">
@@ -62,7 +61,6 @@ function renderHeader() {
     </div>
   `;
 }
-
 renderHeader();
 // dostavka
 let homeSlider = document.querySelector(".home-slider");
