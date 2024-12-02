@@ -28,9 +28,9 @@ function renderHeader() {
       <a href="/">
         <img src="${brandLogo}" alt="brend" />
       </a>
-      <div class="menu-btn-cotalog toggle">
-        <img src="${menuIcon}" alt="menu" />
-        <p>Каталог</p>
+      <div class="menu-btn-cotalog">
+        <img class="toggle" src="${menuIcon}" alt="menu" />
+        <p><a href="../page/cotalog.html">Каталог</a></p>
       </div>
       <input type="text" placeholder="Найти товар" />
       <img class="search-img" src="${searchIcon}" alt="search" />

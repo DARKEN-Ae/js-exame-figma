@@ -5,6 +5,29 @@
   background-repeat: no-repeat;
   max-width: 100%;
 }
+.dostavka-bg .home-slider {
+  margin-top: 82px;
+}
+@media (max-width: 1120px) {
+  .dostavka-bg .home-slider {
+    margin-top: 180px;
+  }
+}
+@media (max-width: 1048px) {
+  .dostavka-bg .home-slider {
+    margin-top: 290px;
+  }
+}
+@media (max-width: 768px) {
+  .dostavka-bg .home-slider {
+    margin-top: 230px;
+  }
+}
+@media (max-width: 505px) {
+  .dostavka-bg .home-slider {
+    margin-top: 390px;
+  }
+}
 
 .sliders {
   display: flex;
@@ -595,6 +618,188 @@
   flex-direction: column;
   gap: 15px;
 }
+.page-links {
+  position: relative;
+  top: 95px;
+}
+.page-links .page-link-in-ul .page-link-in-li {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+  list-style: none;
+}
+.page-links .page-link-in-ul .page-link-in-li a {
+  text-decoration: none;
+  color: rgb(65, 65, 65);
+}
+
+.cotalog-section {
+  position: relative;
+  top: 90px;
+}
+.cotalog-section .cotalog-title h1 {
+  color: rgb(65, 65, 65);
+  font-family: Rubik;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 96px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+.cotalog-section .cotalog-products .products-1 {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.cotalog-section .cotalog-products .products-1 .in-product img {
+  border-radius: 8px;
+}
+.cotalog-section .cotalog-products .products-1 .in-product .text-div {
+  background: linear-gradient(180deg, rgba(112, 192, 91, 0) 0%, #70c05b 82.81%);
+  height: 10vh;
+  position: relative;
+  bottom: 90px;
+  border-radius: 8px;
+}
+.cotalog-section .cotalog-products .products-1 .in-product .text-div h4 {
+  position: relative;
+  bottom: -30px;
+  left: 15px;
+  color: rgb(255, 255, 255);
+  font-family: Rubik;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
+.MilkCheeseEgg .milk-cheese-egg-content {
+  position: relative;
+  top: 90px;
+}
+.MilkCheeseEgg .milk-cheese-egg-content h1 {
+  color: rgb(65, 65, 65);
+  font-family: Rubik;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 72px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .this-products .in-3button {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 32px;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .this-products .in-3button button {
+  width: 220px;
+  height: 32px;
+  padding: 8px;
+  gap: 8px;
+  border-radius: 4px;
+  border: none;
+  color: rgb(96, 96, 96);
+  font-family: Rubik;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  cursor: pointer;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .card-father {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .card-father .in-products {
+  position: relative;
+  top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .card-father .in-products .card-1 {
+  background: rgb(255, 255, 255);
+  box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  width: 275px;
+  height: 360px;
+  border-radius: 4px;
+  padding: 10px;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .card-father .in-products .card-1 .love {
+  display: flex;
+  justify-content: end;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .card-father .in-products .card-1 .in-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: start;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .card-father .in-products .card-1 .in-texts h4 {
+  color: rgb(65, 65, 65);
+  font-family: Rubik;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .card-father .in-products .card-1 .in-texts p {
+  color: rgb(65, 65, 65);
+  font-family: Rubik;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .card-father .in-products .card-1 .stars {
+  display: flex;
+  align-items: start;
+  gap: 5px;
+  position: relative;
+  top: 5px;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .card-father .in-products .card-1 button {
+  width: 256px;
+  height: 40px;
+  padding: 8px;
+  gap: 8px;
+  border-radius: 4px;
+  border: 1px solid rgb(112, 192, 91);
+  position: relative;
+  top: 12px;
+  cursor: pointer;
+}
+.MilkCheeseEgg .milk-cheese-egg-content .card-father .in-products .card-1 button:hover {
+  background: rgb(255, 102, 51);
+  color: rgb(255, 255, 255);
+  border: none;
+}
+
+.custom-footer {
+  margin-top: 15vh;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -636,16 +841,15 @@ ul li a {
   color: rgb(65, 65, 65);
 }
 
-.ehaderSC {
-  position: sticky;
-  top: 0;
-  z-index: 10000;
-}
-.ehaderSC header {
+header {
   background: rgb(255, 255, 255);
   box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
-.ehaderSC header nav {
+header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -653,13 +857,13 @@ ul li a {
   padding: 16px 0;
 }
 @media (max-width: 768px) {
-  .ehaderSC header nav {
+  header nav {
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
 }
-.ehaderSC header nav .brend-cotalog-search-div {
+header nav .brend-cotalog-search-div {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -669,85 +873,85 @@ ul li a {
   max-width: 100%;
 }
 @media (max-width: 505px) {
-  .ehaderSC header nav .brend-cotalog-search-div {
+  header nav .brend-cotalog-search-div {
     display: flex;
     flex-direction: inherit;
     align-items: center;
   }
 }
-.ehaderSC header nav .brend-cotalog-search-div .search-img {
+header nav .brend-cotalog-search-div .search-img {
   position: relative;
   right: 8vh;
 }
 @media (max-width: 505px) {
-  .ehaderSC header nav .brend-cotalog-search-div .search-img {
+  header nav .brend-cotalog-search-div .search-img {
     position: relative;
     bottom: 6vh;
     left: 12vh;
   }
 }
-.ehaderSC header nav .menu {
+header nav .menu {
   display: flex;
   align-items: center;
   justify-content: start;
   gap: 15px;
 }
 @media (max-width: 1120px) {
-  .ehaderSC header nav .menu {
+  header nav .menu {
     display: flex;
     flex-wrap: wrap;
   }
 }
 @media (max-width: 1048px) {
-  .ehaderSC header nav .menu {
+  header nav .menu {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
 @media (max-width: 768px) {
-  .ehaderSC header nav .menu {
+  header nav .menu {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     align-items: center;
   }
 }
-.ehaderSC header nav .menu .header-ul {
+header nav .menu .header-ul {
   display: flex;
   align-items: center;
   justify-content: none;
   gap: 12px;
 }
 @media (max-width: 1048px) {
-  .ehaderSC header nav .menu .header-ul {
+  header nav .menu .header-ul {
     display: flex;
     flex-wrap: wrap;
   }
 }
-.ehaderSC header nav .menu .header-ul .header-li {
+header nav .menu .header-ul .header-li {
   display: flex;
   align-items: center;
   justify-content: none;
   gap: none;
   flex-direction: column;
 }
-.ehaderSC header nav .menu .header-ul .header-li img {
+header nav .menu .header-ul .header-li img {
   width: 25px;
 }
-.ehaderSC header nav .user {
+header nav .user {
   display: flex;
   align-items: center;
   justify-content: start;
   gap: 10px;
 }
 @media (max-width: 1170px) {
-  .ehaderSC header nav .user {
+  header nav .user {
     display: flex;
     flex-direction: column;
   }
 }
-.ehaderSC header nav .menu-btn-cotalog {
+header nav .menu-btn-cotalog {
   display: flex;
   align-items: center;
   justify-content: none;
@@ -759,12 +963,16 @@ ul li a {
   border-radius: 4px;
   cursor: pointer;
 }
+header nav .menu-btn-cotalog a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
 @media (max-width: 768px) {
-  .ehaderSC header nav .menu-btn-cotalog p {
+  header nav .menu-btn-cotalog p {
     display: none;
   }
 }
-.ehaderSC header nav input {
+header nav input {
   width: 50vh;
   height: 5vh;
   padding-left: 10px;
@@ -774,12 +982,12 @@ ul li a {
   outline: white;
 }
 @media (max-width: 505px) {
-  .ehaderSC header nav input {
+  header nav input {
     width: 40vh;
   }
 }
 @media (max-width: 365px) {
-  .ehaderSC header nav input {
+  header nav input {
     width: 30vh;
   }
 }
@@ -788,6 +996,11 @@ ul li a {
   display: none;
   background-color: rgb(255, 255, 255);
   margin-top: 5px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  margin-top: 77px;
 }
 .cotalof-menu ul {
   display: grid;

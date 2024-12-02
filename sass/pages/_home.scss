@@ -6,6 +6,22 @@
   background-size: cover;
   background-repeat: no-repeat;
   max-width: 100%;
+  .home-slider {
+    margin-top: 82px;
+
+    @media (max-width: 1120px) {
+      margin-top: 180px;
+    }
+    @media (max-width: 1048px) {
+      margin-top: 290px;
+    }
+    @media (max-width: 768px) {
+      margin-top: 230px;
+    }
+    @media (max-width: 505px) {
+      margin-top: 390px;
+    }
+  }
 }
 .sliders {
   @include mxn.flex(center, space-around, none);

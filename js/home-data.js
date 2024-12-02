@@ -8,9 +8,13 @@ const headerData = {
   cartIcon: "../assets/icon/shopping-cart.svg",
   userAvatar: "../assets/icon/avatar.png",
   indicatorIcon: "../assets/icon/indicator.png",
-  userName: "Алексей",
+  userName: "Зарегистрироваться",
   menuItems: [
-    { icon: "../assets/icon/love.svg", text: "Избранное", link: "#" },
+    {
+      icon: "../assets/icon/love.svg",
+      text: "Избранное",
+      link: "../page/Молоко, сыр, яйцо.html",
+    },
     { icon: "../assets/icon/box.svg", text: "Заказы", link: "#" },
     {
       icon: "../assets/icon/shopping-cart.svg",

@@ -1,0 +1,68 @@
+@use "../utils/mixins" as mxn;
+@use "../utils/variables" as var;
+
+.page-links {
+  position: relative;
+  top: 95px;
+  .page-link-in-ul {
+    .page-link-in-li {
+      @include mxn.flex(center, start, 8px);
+      list-style: none;
+      a {
+        text-decoration: none;
+        color: var.$text-color;
+      }
+    }
+  }
+}
+.cotalog-section {
+  position: relative;
+  top: 90px;
+  .cotalog-title {
+    h1 {
+      color: var.$text-color;
+      font-family: Rubik;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 96px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+  }
+  .cotalog-products {
+    .products-1 {
+      @include mxn.flex(center, start, 40px);
+      flex-wrap: wrap;
+      .in-product {
+        img {
+          border-radius: 8px;
+        }
+        .text-div {
+          background: linear-gradient(
+            180deg,
+            rgba(112, 192, 91, 0) 0%,
+            #70c05b 82.81%
+          );
+          height: 10vh;
+          position: relative;
+          bottom: 90px;
+          border-radius: 8px;
+          h4 {
+            position: relative;
+            bottom: -30px;
+            left: 15px;
+            color: var.$colour-white;
+            font-family: Rubik;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 27px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+          }
+        }
+      }
+    }
+  }
+}
