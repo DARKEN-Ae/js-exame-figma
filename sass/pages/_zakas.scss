@@ -1,3 +1,7 @@
+.zakas-sc-1 {
+  position: relative;
+  top: 100px;
+}
 .zakas-title {
   color: rgba(65, 65, 65, 1);
   font-family: Rubik;
@@ -21,12 +25,28 @@
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 8px;
+
+  @media (max-width: 922px) {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 0 auto;
+  }
+  @media (max-width: 827px) {
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+  }
 }
 
 .data-one {
   display: flex;
   align-items: center;
   gap: 20px;
+  @media (max-width: 446px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .data-one h1 {
@@ -36,6 +56,12 @@
   font-weight: 700;
   line-height: 36px;
   margin: 0;
+  @media (max-width: 922px) {
+    font-size: 15px;
+  }
+  @media (max-width: 520px) {
+    font-size: 10px;
+  }
 }
 
 .data-one button {
@@ -51,12 +77,22 @@
   font-size: 16px;
   font-weight: 400;
   text-align: center;
+  @media (max-width: 922px) {
+    font-size: 10px;
+    width: 80px;
+    height: 50px;
+  }
 }
 
 .data-and-price {
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media (max-width: 505px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .data-and-price span {
@@ -64,6 +100,9 @@
   font-family: Rubik;
   font-size: 24px;
   font-weight: 400;
+  @media (max-width: 922px) {
+    font-size: 15px;
+  }
 }
 
 .data-and-price button {
@@ -83,6 +122,11 @@
   cursor: pointer;
   position: relative;
   gap: 8px;
+  @media (max-width: 922px) {
+    font-size: 10px;
+    width: 150px;
+    height: 40px;
+  }
 }
 
 .data-and-price button input {

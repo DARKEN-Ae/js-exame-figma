@@ -32,7 +32,7 @@ function renderHeader() {
         <img class="toggle" src="${menuIcon}" alt="menu" />
         <p><a href="../page/cotalog.html">Каталог</a></p>
       </div>
-      <input type="text" placeholder="Найти товар" />
+      <input class="header-search"  id="search" type="text" placeholder="Найти товар" />
       <img class="search-img" src="${searchIcon}" alt="search" />
     </div>
     <div class="menu">

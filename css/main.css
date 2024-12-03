@@ -169,6 +169,10 @@
   justify-content: space-between;
   align-items: center;
 }
+.card .in-card-text .one-two-text-father .one-text {
+  flex: 1;
+  text-align: center;
+}
 .card .in-card-text .one-two-text-father .one-text h3 {
   color: rgb(65, 65, 65);
   font-family: Rubik;
@@ -179,6 +183,7 @@
   text-underline-position: from-font;
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
+  margin: 0;
 }
 .card .in-card-text .one-two-text-father .one-text p {
   color: rgb(191, 191, 191);
@@ -558,6 +563,11 @@
   text-align: center;
 }
 
+.korzina-total {
+  display: flex;
+  justify-content: space-between;
+}
+
 .page-links {
   position: relative;
   top: 80px;
@@ -698,6 +708,18 @@
   border: none;
   cursor: pointer;
   border-radius: 5px;
+}
+
+#total-price {
+  background: rgb(255, 102, 51);
+  padding: 15px;
+  border-radius: 15px;
+  color: white;
+  font-family: cursive;
+  width: 220px;
+  height: 50%;
+  text-align: center;
+  font-size: 12px;
 }
 
 .page-links {
@@ -890,6 +912,11 @@
   margin-top: 15vh;
 }
 
+.zakas-sc-1 {
+  position: relative;
+  top: 100px;
+}
+
 .zakas-title {
   color: rgb(65, 65, 65);
   font-family: Rubik;
@@ -914,11 +941,32 @@
   border: 1px solid #ddd;
   border-radius: 8px;
 }
+@media (max-width: 922px) {
+  .order-data {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 827px) {
+  .order-data {
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+  }
+}
 
 .data-one {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+@media (max-width: 446px) {
+  .data-one {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .data-one h1 {
@@ -928,6 +976,16 @@
   font-weight: 700;
   line-height: 36px;
   margin: 0;
+}
+@media (max-width: 922px) {
+  .data-one h1 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 520px) {
+  .data-one h1 {
+    font-size: 10px;
+  }
 }
 
 .data-one button {
@@ -944,11 +1002,24 @@
   font-weight: 400;
   text-align: center;
 }
+@media (max-width: 922px) {
+  .data-one button {
+    font-size: 10px;
+    width: 80px;
+    height: 50px;
+  }
+}
 
 .data-and-price {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+@media (max-width: 505px) {
+  .data-and-price {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .data-and-price span {
@@ -956,6 +1027,11 @@
   font-family: Rubik;
   font-size: 24px;
   font-weight: 400;
+}
+@media (max-width: 922px) {
+  .data-and-price span {
+    font-size: 15px;
+  }
 }
 
 .data-and-price button {
@@ -975,6 +1051,13 @@
   cursor: pointer;
   position: relative;
   gap: 8px;
+}
+@media (max-width: 922px) {
+  .data-and-price button {
+    font-size: 10px;
+    width: 150px;
+    height: 40px;
+  }
 }
 
 .data-and-price button input {
