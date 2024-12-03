@@ -8,13 +8,13 @@
   </head>
   <body>
     <!-- header -->
-    <section class="ehaderSC">
+    <section class="headerSC">
       <header>
         <div class="container">
-          <nav class="nav-ection nav-section-row"></nav>
+          <nav class="nav-section nav-section-row"></nav>
         </div>
       </header>
-      <div class="cotalof-menu">
+      <div class="catalog-menu">
         <ul>
           <li><a href="#">Молоко, сыр, яйцо</a></li>
           <li><a href="#">Хлеб</a></li>
@@ -43,38 +43,12 @@
       </div>
     </div>
     <!-- section-2 -->
-    <div class="korzinasc">
+    <section class="section-2 korzina-section">
       <div class="container">
-        <h1>Корзина</h1>
-        <div class="kr-product">
-          <div class="all-check">
-            <div class="minus">-</div>
-            <div class="all-text">Выделить всё</div>
-            <a href="#"><p class="delete-sc">Удалить выбранные</p></a>
-          </div>
-          <div class="product-tovars">
-            <div class="tovar-card">
-              <img src="../assets/images/add-food.png" alt="add-food" />
-              <div class="in-about">
-                <p>Комбайн КЗС-1218 «ДЕСНА-ПОЛЕСЬЕ GS12»</p>
-                <div class="in-spans">
-                  <span>44,50 ₽</span>
-                  <span>за шт.</span>
-                </div>
-              </div>
-              <div class="add-or-remove">
-                <div class="its-btn">
-                  <span>-</span>
-                  <span>2</span>
-                  <span>+</span>
-                  <h3>89,00 ₽</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h1 class="korzina-title">Корзина</h1>
+        <div class="korzina-items" id="cart-items"></div>
       </div>
-    </div>
+    </section>
     <!-- footer -->
     <section>
       <div class="container">
@@ -117,7 +91,8 @@
     <!-- js -->
     <script src="../js/home-data.js"></script>
     <script src="../js/home.js"></script>
-    <script src="../js/map.js"></script>
+    <!-- <script src="../js/map.js"></script> -->
     <script src="../js/korzina.js"></script>
+    <script src="../js/korzina-data.js"></script>
   </body>
 </html>

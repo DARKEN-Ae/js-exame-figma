@@ -16,6 +16,8 @@
   }
 }
 .cotalog-section {
+  display: flex;
+  justify-content: center;
   position: relative;
   top: 90px;
   .cotalog-title {
@@ -36,12 +38,11 @@
       grid-template-columns: repeat(4, 1fr);
       @media (max-width: 1315px) {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(200px, 1fr);
       }
       .in-product {
         img {
           border-radius: 8px;
-          width: 100%;
         }
         .text-div {
           background: linear-gradient(

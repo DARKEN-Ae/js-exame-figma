@@ -2,6 +2,8 @@
 @use "../utils/variables" as var;
 
 .page-links {
+  position: relative;
+  top: 80px;
   @include mxn.flex(center, start, 8px);
   a {
     text-decoration: none;
@@ -11,74 +13,127 @@
     rotate: -90deg;
   }
 }
-.korzinasc {
-  h1 {
-    color: var.$text-color;
-    font-family: Rubik;
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 96px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+
+.section-2 {
+  position: relative;
+  top: 150px;
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.korzina-items {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.korzina-title {
+  color: var.$text-color;
+  font-family: Rubik;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 96px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 80vh;
+  background: rgba(255, 255, 255, 1);
+  padding: 15px;
+  border-radius: 15px;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 4px 8px 16px 0px rgba(255, 102, 51, 0.2);
   }
-  .all-check {
-    @include mxn.flex(center, none, 16px);
-    a {
-      text-decoration: none;
-    }
-    .minus {
-      width: 24px;
-      height: 24px;
-      border-radius: 4px;
-      background: rgba(112, 192, 91, 1);
-      border: 1px solid rgba(243, 242, 241, 1);
-      text-align: center;
-      color: #fff;
-    }
-    .all-text {
-      color: var.$text-color;
-      font-family: Rubik;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 18px;
-      text-align: center;
-      text-underline-position: from-font;
-      text-decoration-skip-ink: none;
-    }
-    .delete-sc {
-      color: var.$hover-color;
-      font-family: Rubik;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 18px;
-      text-align: center;
-      text-underline-position: from-font;
-      text-decoration-skip-ink: none;
-    }
+
+  img {
+    max-width: 100%;
+    width: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 8px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
   }
-  .product-tovars {
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
-    width: 876px;
-    height: 72px;
-    gap: 16px;
+
+  img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(255, 0, 0, 0.1);
+  }
+}
+.quantity-controls {
+  width: 100px;
+  height: 40px;
+  padding: 8px;
+  gap: 8px;
+  border-radius: 10px;
+  backdrop-filter: blur(80px);
+  background-color: #dddddd4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff0000;
+
+  .decrease-btn {
+    background: rgb(255, 0, 0);
+    border: none;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 15px;
     display: flex;
-    border-radius: 4px;
-
-    .tovar-card {
-      @include mxn.flex(flex-start, center, 16px);
-    }
-
-    .in-about {
-      padding: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .add-or-remove {
-      .its-btn {
-      }
-    }
+    align-items: center;
+    justify-content: center;
   }
+  .increase-btn {
+    background: rgb(21, 255, 0);
+    border: none;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.cart-card {
+  display: flex;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.cart-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.cart-details {
+  margin-left: 20px;
+}
+
+.remove-from-cart-btn {
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }

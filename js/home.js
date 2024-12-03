@@ -42,7 +42,7 @@ function renderHeader() {
             (item) => `
           <li class="header-li">
             <img src="${item.icon}" alt="${item.text}" />
-            <a href="${item.link}">${item.text}</a>
+            <a class="korzina-a" href="${item.link}">${item.text}</a>
             ${
               item.text === "Корзина"
                 ? '<span class="cart-count" style="display: none;">0</span>'
@@ -87,11 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
   getProductSlider();
 });
 // get product1
-let allProductsRow = document.querySelector(".allProducts-row");
-
+// O'zgaruvchilar va DOM elementlari
+const allProductsRow = document.querySelector(".allProducts-row");
 let cartCount = 0;
 
-function getAllProducts({
+// Mahsulotlarni olish va render qilish
+const getAllProducts = ({
   foodLove,
   foodImage,
   foodSkidka,
@@ -103,72 +104,143 @@ function getAllProducts({
   retingFellingImg,
   retingGrayStar,
   btn,
-}) {
-  return `
-    <div class="card">
-      <div class="in-card-img">
-        <img class="love-icon" src="${foodLove}" alt="love-icon" />
-        <img class="food-img" src="${foodImage}" alt="food" />
-        <span>${foodSkidka}</span>
-      </div>
-      <div class="in-card-text">
-        <div class="one-two-text-father">
-          <div class="one-text">
-            <h3>${foodBoldPrice} ₽</h3>
-            <p>${foodSmallText}</p>
-          </div>
-          <div class="two-text">
-            <h3>${foodDefPrice} ₽</h3>
-            <p>${foodDeftext}</p>
-          </div>
-        </div>
-        <p class="lorem-text">${loremText}</p>
-        <div class="reting">
-          <img src="${retingFellingImg}" alt="filling-star" />
-          <img src="${retingFellingImg}" alt="filling-star" />
-          <img src="${retingGrayStar}" alt="gray-star" />
-          <img src="${retingGrayStar}" alt="gray-star" />
-          <img src="${retingGrayStar}" alt="gray-star" />
-        </div>
-        <button class="add-to-cart-btn">${btn}</button>
-      </div>
+}) => `
+  <div class="card">
+    <div class="in-card-img">
+      <img class="love-icon" src="${foodLove}" alt="love-icon" />
+      <img class="food-img" src="${foodImage}" alt="food" />
+      <span>${foodSkidka}</span>
     </div>
-  `;
-}
+    <div class="in-card-text">
+      <div class="one-two-text-father">
+        <div class="one-text">
+          <h3>${foodBoldPrice} ₽</h3>
+          <p>${foodSmallText}</p>
+        </div>
+        <div class="two-text">
+          <h3>${foodDefPrice} ₽</h3>
+          <p>${foodDeftext}</p>
+        </div>
+      </div>
+      <p class="lorem-text">${loremText}</p>
+      <div class="reting">
+        ${[1, 2]
+          .map(() => `<img src="${retingFellingImg}" alt="filling-star" />`)
+          .join("")}
+        ${[1, 2, 3]
+          .map(() => `<img src="${retingGrayStar}" alt="gray-star" />`)
+          .join("")}
+      </div>
+      <button class="add-to-cart-btn">${btn}</button>
+    </div>
+  </div>
+`;
 
+// Mahsulotlarni sahifaga joylash
 if (allProductsRow) {
   products.forEach((product) => {
     allProductsRow.innerHTML += getAllProducts(product);
   });
 
-  const loveIcons = document.querySelectorAll(".love-icon");
-  loveIcons.forEach((icon) => {
+  // "love-icon" tugmasini bosish (qizil fonni o'zgartirish)
+  document.querySelectorAll(".love-icon").forEach((icon, index) => {
+    const localKey = `love-icon-${index}`;
+    icon.style.background =
+      localStorage.getItem(localKey) === "true" ? "red" : "";
     icon.addEventListener("click", () => {
-      icon.style.filter =
-        "invert(18%) sepia(87%) saturate(5994%) hue-rotate(357deg) brightness(96%) contrast(110%)";
+      const isRed = icon.style.background === "red";
+      icon.style.background = isRed ? "" : "red";
+      localStorage.setItem(localKey, !isRed);
     });
   });
 
-  const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
-  addToCartButtons.forEach((button) => {
+  // "add-to-cart-btn" tugmasini bosish (mahsulotni korzinaga qo'shish)
+  document.querySelectorAll(".add-to-cart-btn").forEach((button, index) => {
     button.addEventListener("click", () => {
-      cartCount++;
-      updateCartCount();
+      const product = products[index];
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Agar mahsulot allaqachon korzinada bo'lsa, qo'shmaslik
+      const isProductInCart = cart.some(
+        (item) => item.foodImage === product.foodImage
+      );
+
+      if (!isProductInCart) {
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        cartCount++;
+        updateCartCount();
+      } else {
+        alert("Bu mahsulot allaqachon korzinada mavjud!");
+      }
     });
   });
-}
 
-function updateCartCount() {
-  const cartCountElement = document.querySelector(".cart-count");
-  if (cartCountElement) {
-    cartCountElement.style.display = "inline";
-    cartCountElement.textContent = cartCount;
+  // Korzina sonini yangilash
+  const updateCartCount = () => {
+    const cartCountElement = document.querySelector(".cart-count");
+    if (cartCountElement) {
+      cartCountElement.style.display = "inline";
+      cartCountElement.textContent = JSON.parse(
+        localStorage.getItem("cart")
+      ).length;
+    }
+  };
+
+  // Sahifa yuklanganda korzina sonini yangilash
+  if (localStorage.getItem("cart")) {
+    const cartItems = JSON.parse(localStorage.getItem("cart"));
+    cartCount = cartItems.length;
+    updateCartCount();
   }
 }
 
+// Korzina sahifasi (korzinaga o'tgan foydalanuvchi uchun)
+const cartContainer = document.querySelector(".cart-container");
+if (cartContainer) {
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Korzina mahsulotlarini render qilish
+  const renderCartItems = () => {
+    cartContainer.innerHTML = ""; // Avvalgi mahsulotlarni o'chirish
+    cartItems.forEach((item) => {
+      const cartCard = `
+        <div class="cart-card">
+          <img src="${item.foodImage}" alt="food" />
+          <div class="cart-details">
+            <h3>${item.foodBoldPrice} ₽</h3>
+            <p>${item.foodSmallText}</p>
+            <p>${item.loremText}</p>
+            <button class="remove-from-cart-btn">O'chirish</button>
+          </div>
+        </div>
+      `;
+      cartContainer.innerHTML += cartCard;
+    });
+  };
+
+  // Dastlabki render
+  renderCartItems();
+
+  // "remove-from-cart-btn" tugmasini bosish (mahsulotni korzinadan o'chirish)
+  document
+    .querySelectorAll(".remove-from-cart-btn")
+    .forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const productToRemove = cartItems[index];
+        const updatedCart = cartItems.filter(
+          (item) => item.foodImage !== productToRemove.foodImage
+        );
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        renderCartItems();
+        updateCartCount();
+      });
+    });
+}
+
 // get product2
-let allProductsRowTwo = document.querySelector(".allProducts-row-two");
-function getAllProductsTwo({
+const allProductsRowTwo = document.querySelector(".allProducts-row-two");
+const getAllProductsTwo = ({
   foodLove,
   foodImage,
   foodSkidka,
@@ -180,56 +252,59 @@ function getAllProductsTwo({
   retingFellingImg,
   retingGrayStar,
   btn,
-}) {
-  return `
-    <div class="card">
-      <div class="in-card-img">
-        <img class="love-icon" src="${foodLove}" alt="love-icon" />
-        <img class="food-img" src="${foodImage}" alt="food" />
-        <span>${foodSkidka}</span>
-      </div>
-      <div class="in-card-text">
-        <div class="one-two-text-father">
-          <div class="one-text">
-            <h3>${foodBoldPrice} ₽</h3>
-            <p>${foodSmallText}</p>
-          </div>
-          <div class="two-text">
-            <h3>${foodDefPrice} ₽</h3>
-            <p>${foodDeftext}</p>
-          </div>
-        </div>
-        <p class="lorem-text">${loremText}</p>
-        <div class="reting">
-          <img src="${retingFellingImg}" alt="filling-star" />
-          <img src="${retingFellingImg}" alt="filling-star" />
-          <img src="${retingGrayStar}" alt="gray-star" />
-          <img src="${retingGrayStar}" alt="gray-star" />
-          <img src="${retingGrayStar}" alt="gray-star" />
-        </div>
-        <button>${btn}</button>
-      </div>
+}) => `
+  <div class="card">
+    <div class="in-card-img">
+      <img class="love-icon" src="${foodLove}" alt="love-icon" />
+      <img class="food-img" src="${foodImage}" alt="food" />
+      <span>${foodSkidka}</span>
     </div>
-  `;
-}
+    <div class="in-card-text">
+      <div class="one-two-text-father">
+        <div class="one-text">
+          <h3>${foodBoldPrice} ₽</h3>
+          <p>${foodSmallText}</p>
+        </div>
+        <div class="two-text">
+          <h3>${foodDefPrice} ₽</h3>
+          <p>${foodDeftext}</p>
+        </div>
+      </div>
+      <p class="lorem-text">${loremText}</p>
+      <div class="reting">
+        ${[1, 2]
+          .map(() => `<img src="${retingFellingImg}" alt="filling-star" />`)
+          .join("")}
+        ${[1, 2, 3]
+          .map(() => `<img src="${retingGrayStar}" alt="gray-star" />`)
+          .join("")}
+      </div>
+      <button>${btn}</button>
+    </div>
+  </div>
+`;
+
 if (allProductsRowTwo) {
-  productsTwo.forEach((productsTwo) => {
-    allProductsRowTwo.innerHTML += getAllProductsTwo(productsTwo);
-  });
-
-  const loveIconsTwo = document.querySelectorAll(
-    ".allProducts-row-two .love-icon"
+  productsTwo.forEach(
+    (product) => (allProductsRowTwo.innerHTML += getAllProductsTwo(product))
   );
-  loveIconsTwo.forEach((icon) => {
-    icon.addEventListener("click", () => {
-      icon.style.filter =
-        "invert(18%) sepia(87%) saturate(5994%) hue-rotate(357deg) brightness(96%) contrast(110%)";
+  document
+    .querySelectorAll(".allProducts-row-two .love-icon")
+    .forEach((icon, index) => {
+      const localKey = `love-icon-${index}`;
+      icon.style.backgroundColor =
+        localStorage.getItem(localKey) === "true" ? "red" : "";
+      icon.addEventListener("click", () => {
+        const isRed = icon.style.backgroundColor === "red";
+        icon.style.backgroundColor = isRed ? "" : "red";
+        localStorage.setItem(localKey, !isRed);
+      });
     });
-  });
 }
+
 // get product3
-let allProductsRowThree = document.querySelector(".allProducts-row-three");
-function getAllProductsThree({
+const allProductsRowThree = document.querySelector(".allProducts-row-three");
+const getAllProductsThree = ({
   foodLove,
   foodImage,
   foodSkidka,
@@ -241,54 +316,53 @@ function getAllProductsThree({
   retingFellingImg,
   retingGrayStar,
   btn,
-}) {
-  return `
-    <div class="card">
-      <div class="in-card-img">
-        <img class="love-icon" src="${foodLove}" alt="love-icon" />
-        <img class="food-img" src="${foodImage}" alt="food" />
-        <span>${foodSkidka}</span>
-      </div>
-      <div class="in-card-text">
-        <div class="one-two-text-father">
-          <div class="one-text">
-            <h3>${foodBoldPrice} ₽</h3>
-            <p>${foodSmallText}</p>
-          </div>
-          <div class="two-text">
-            <h3>${foodDefPrice} ₽</h3>
-            <p>${foodDeftext}</p>
-          </div>
-        </div>
-        <p class="lorem-text">${loremText}</p>
-        <div class="reting">
-          <img src="${retingFellingImg}" alt="filling-star" />
-          <img src="${retingFellingImg}" alt="filling-star" />
-          <img src="${retingGrayStar}" alt="gray-star" />
-          <img src="${retingGrayStar}" alt="gray-star" />
-          <img src="${retingGrayStar}" alt="gray-star" />
-        </div>
-        <button>${btn}</button>
-      </div>
+}) => `
+  <div class="card">
+    <div class="in-card-img">
+      <img class="love-icon" src="${foodLove}" alt="love-icon" />
+      <img class="food-img" src="${foodImage}" alt="food" />
+      <span>${foodSkidka}</span>
     </div>
-  `;
-}
+    <div class="in-card-text">
+      <div class="one-two-text-father">
+        <div class="one-text">
+          <h3>${foodBoldPrice} ₽</h3>
+          <p>${foodSmallText}</p>
+        </div>
+        <div class="two-text">
+          <h3>${foodDefPrice} ₽</h3>
+          <p>${foodDeftext}</p>
+        </div>
+      </div>
+      <p class="lorem-text">${loremText}</p>
+      <div class="reting">
+        ${[1, 2]
+          .map(() => `<img src="${retingFellingImg}" alt="filling-star" />`)
+          .join("")}
+        ${[1, 2, 3]
+          .map(() => `<img src="${retingGrayStar}" alt="gray-star" />`)
+          .join("")}
+      </div>
+      <button>${btn}</button>
+    </div>
+  </div>
+`;
 
+// Sahifaga mahsulotlarni qo'shish
 if (allProductsRowThree) {
-  productsThree.forEach((productsThree) => {
-    allProductsRowThree.innerHTML += getAllProductsThree(productsThree);
-  });
-
-  const loveIconsThree = document.querySelectorAll(
-    ".allProducts-row-three .love-icon"
+  productsThree.forEach(
+    (product) => (allProductsRowThree.innerHTML += getAllProductsThree(product))
   );
-  loveIconsThree.forEach((icon) => {
-    icon.addEventListener("click", () => {
-      icon.style.filter =
-        "invert(18%) sepia(87%) saturate(5994%) hue-rotate(357deg) brightness(96%) contrast(110%)";
+  document
+    .querySelectorAll(".allProducts-row-three .love-icon")
+    .forEach((icon) => {
+      icon.addEventListener("click", () => {
+        icon.style.filter =
+          "invert(18%) sepia(87%) saturate(5994%) hue-rotate(357deg) brightness(96%) contrast(110%)";
+      });
     });
-  });
 }
+
 // more-cards
 let inThreeCards = document.querySelector(".in-three-cards");
 function getMoreCards({

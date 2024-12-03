@@ -9,17 +9,21 @@
   .home-slider {
     margin-top: 82px;
 
+    @media (max-width: 1170px) {
+      margin-top: 130px;
+    }
+
     @media (max-width: 1120px) {
-      margin-top: 180px;
+      margin-top: 130px;
     }
     @media (max-width: 1048px) {
-      margin-top: 290px;
+      margin-top: 185px;
     }
     @media (max-width: 768px) {
-      margin-top: 230px;
+      margin-top: 180px;
     }
     @media (max-width: 505px) {
-      margin-top: 390px;
+      margin-top: 345px;
     }
   }
 }
@@ -40,7 +44,7 @@
 }
 .actions-card-bg {
   .actsion {
-    @include mxn.flex(center, space-around, none);
+    @include mxn.flex(center, space-between, none);
     padding-top: 38px;
     margin-top: 25px;
 
@@ -95,6 +99,10 @@
   padding: 15px;
   border-radius: 4px;
   box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 4px 8px 16px 0px rgba(255, 102, 51, 0.2);
+  }
 
   .in-card-img {
     .love-icon {
@@ -102,6 +110,9 @@
       position: relative;
       left: 25vh;
       top: 0vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
     }
     img {
       max-width: 100%;
@@ -367,6 +378,10 @@
 
     iframe {
       object-fit: cover;
+      width: 1200px;
+      @media (max-width: 1250px) {
+        max-width: 100%;
+      }
       @media (max-width: 752px) {
         width: 500px;
       }

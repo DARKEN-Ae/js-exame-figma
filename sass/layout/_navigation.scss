@@ -6,18 +6,15 @@
   margin-top: 5px;
   position: fixed;
   top: 0;
-  z-index: 1000;
   width: 100%;
   margin-top: 77px;
+  z-index: 1000;
 
   ul {
     display: grid;
-    // grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
     list-style: none;
-    // padding: 0;
-    // margin: 0;
     padding-left: 22vh;
     @media (max-width: 1210px) {
       padding-right: 15vh;
@@ -33,7 +30,6 @@
     }
     @media (max-width: 703px) {
       grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-      // text-align: center;
     }
     @media (max-width: 675px) {
     }

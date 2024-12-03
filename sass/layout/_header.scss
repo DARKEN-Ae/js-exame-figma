@@ -7,11 +7,17 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1001;
 
   nav {
-    @include mxn.flex(center, space-between, none);
+    @include mxn.flex(center, space-between, 10px);
     padding: 16px 0;
+
+    @media (max-width: 1170px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     @media (max-width: 768px) {
       display: flex;
@@ -71,6 +77,10 @@ header {
         .header-li {
           @include mxn.flex(center, none, none);
           flex-direction: column;
+
+          .korzina-a {
+            position: relative;
+          }
           img {
             width: 25px;
           }
@@ -82,7 +92,6 @@ header {
 
       @media (max-width: 1170px) {
         display: flex;
-        flex-direction: column;
       }
     }
     .menu-btn-cotalog {
