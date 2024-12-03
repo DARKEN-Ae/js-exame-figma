@@ -86,12 +86,9 @@ function getProductSlider(data = dostavka) {
 document.addEventListener("DOMContentLoaded", () => {
   getProductSlider();
 });
-// get product1
-// O'zgaruvchilar va DOM elementlari
+// -------------get product1----------------
 const allProductsRow = document.querySelector(".allProducts-row");
 let cartCount = 0;
-
-// Mahsulotlarni olish va render qilish
 const getAllProducts = ({
   foodLove,
   foodImage,
@@ -135,14 +132,11 @@ const getAllProducts = ({
     </div>
   </div>
 `;
-
-// Mahsulotlarni sahifaga joylash
 if (allProductsRow) {
   products.forEach((product) => {
     allProductsRow.innerHTML += getAllProducts(product);
   });
 
-  // "love-icon" tugmasini bosish (qizil fonni o'zgartirish)
   document.querySelectorAll(".love-icon").forEach((icon, index) => {
     const localKey = `love-icon-${index}`;
     icon.style.background =
@@ -154,13 +148,11 @@ if (allProductsRow) {
     });
   });
 
-  // "add-to-cart-btn" tugmasini bosish (mahsulotni korzinaga qo'shish)
   document.querySelectorAll(".add-to-cart-btn").forEach((button, index) => {
     button.addEventListener("click", () => {
       const product = products[index];
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      // Agar mahsulot allaqachon korzinada bo'lsa, qo'shmaslik
       const isProductInCart = cart.some(
         (item) => item.foodImage === product.foodImage
       );
@@ -176,7 +168,6 @@ if (allProductsRow) {
     });
   });
 
-  // Korzina sonini yangilash
   const updateCartCount = () => {
     const cartCountElement = document.querySelector(".cart-count");
     if (cartCountElement) {
@@ -187,22 +178,18 @@ if (allProductsRow) {
     }
   };
 
-  // Sahifa yuklanganda korzina sonini yangilash
   if (localStorage.getItem("cart")) {
     const cartItems = JSON.parse(localStorage.getItem("cart"));
     cartCount = cartItems.length;
     updateCartCount();
   }
 }
-
-// Korzina sahifasi (korzinaga o'tgan foydalanuvchi uchun)
 const cartContainer = document.querySelector(".cart-container");
 if (cartContainer) {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Korzina mahsulotlarini render qilish
   const renderCartItems = () => {
-    cartContainer.innerHTML = ""; // Avvalgi mahsulotlarni o'chirish
+    cartContainer.innerHTML = "";
     cartItems.forEach((item) => {
       const cartCard = `
         <div class="cart-card">
@@ -219,10 +206,8 @@ if (cartContainer) {
     });
   };
 
-  // Dastlabki render
   renderCartItems();
 
-  // "remove-from-cart-btn" tugmasini bosish (mahsulotni korzinadan o'chirish)
   document
     .querySelectorAll(".remove-from-cart-btn")
     .forEach((button, index) => {
@@ -238,9 +223,12 @@ if (cartContainer) {
     });
 }
 
-// get product2
+// -------------get product2----------------
 const allProductsRowTwo = document.querySelector(".allProducts-row-two");
+let cartCountTwo = 0;
+
 const getAllProductsTwo = ({
+  id,
   foodLove,
   foodImage,
   foodSkidka,
@@ -253,7 +241,7 @@ const getAllProductsTwo = ({
   retingGrayStar,
   btn,
 }) => `
-  <div class="card">
+  <div class="card" data-id="${id}">
     <div class="in-card-img">
       <img class="love-icon" src="${foodLove}" alt="love-icon" />
       <img class="food-img" src="${foodImage}" alt="food" />
@@ -279,31 +267,74 @@ const getAllProductsTwo = ({
           .map(() => `<img src="${retingGrayStar}" alt="gray-star" />`)
           .join("")}
       </div>
-      <button>${btn}</button>
+      <button class="add-to-cart-btn">${btn}</button>
     </div>
   </div>
 `;
-
 if (allProductsRowTwo) {
-  productsTwo.forEach(
-    (product) => (allProductsRowTwo.innerHTML += getAllProductsTwo(product))
-  );
+  productsTwo.forEach((product) => {
+    allProductsRowTwo.innerHTML += getAllProductsTwo(product);
+  });
+
   document
     .querySelectorAll(".allProducts-row-two .love-icon")
     .forEach((icon, index) => {
-      const localKey = `love-icon-${index}`;
-      icon.style.backgroundColor =
+      const productId = productsTwo[index].id;
+      const localKey = `love-icon-${productId}`;
+
+      icon.style.background =
         localStorage.getItem(localKey) === "true" ? "red" : "";
+
       icon.addEventListener("click", () => {
-        const isRed = icon.style.backgroundColor === "red";
-        icon.style.backgroundColor = isRed ? "" : "red";
+        const isRed = icon.style.background === "red";
+        icon.style.background = isRed ? "" : "red";
         localStorage.setItem(localKey, !isRed);
       });
     });
+
+  document
+    .querySelectorAll(".allProducts-row-two .add-to-cart-btn")
+    .forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const product = productsTwo[index];
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const isProductInCart = cart.some(
+          (item) => item.foodImage === product.foodImage
+        );
+
+        if (!isProductInCart) {
+          cart.push(product);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          cartCountTwo++;
+          updateCartCountTwo();
+        } else {
+          alert("Bu mahsulot allaqachon korzinada mavjud!");
+        }
+      });
+    });
+
+  const updateCartCountTwo = () => {
+    const cartCountElement = document.querySelector(".cart-count");
+    if (cartCountElement) {
+      cartCountElement.style.display = "inline";
+      cartCountElement.textContent = JSON.parse(
+        localStorage.getItem("cart")
+      ).length;
+    }
+  };
+
+  if (localStorage.getItem("cart")) {
+    const cartItems = JSON.parse(localStorage.getItem("cart"));
+    cartCountTwo = cartItems.length;
+    updateCartCountTwo();
+  }
 }
 
-// get product3
+// -------------get product3----------------
 const allProductsRowThree = document.querySelector(".allProducts-row-three");
+let cartCountThree = 0;
+
 const getAllProductsThree = ({
   foodLove,
   foodImage,
@@ -343,22 +374,101 @@ const getAllProductsThree = ({
           .map(() => `<img src="${retingGrayStar}" alt="gray-star" />`)
           .join("")}
       </div>
-      <button>${btn}</button>
+      <button class="add-to-cart-btn-three">${btn}</button>
     </div>
   </div>
 `;
 
-// Sahifaga mahsulotlarni qo'shish
 if (allProductsRowThree) {
-  productsThree.forEach(
-    (product) => (allProductsRowThree.innerHTML += getAllProductsThree(product))
-  );
+  productsThree.forEach((product) => {
+    allProductsRowThree.innerHTML += getAllProductsThree(product);
+  });
+
+  document.querySelectorAll(".love-icon").forEach((icon, index) => {
+    const localKey = `love-icon-${index}`;
+    icon.style.background =
+      localStorage.getItem(localKey) === "true" ? "red" : "";
+    icon.addEventListener("click", () => {
+      const isRed = icon.style.background === "red";
+      icon.style.background = isRed ? "" : "red";
+      localStorage.setItem(localKey, !isRed);
+    });
+  });
+
   document
-    .querySelectorAll(".allProducts-row-three .love-icon")
-    .forEach((icon) => {
-      icon.addEventListener("click", () => {
-        icon.style.filter =
-          "invert(18%) sepia(87%) saturate(5994%) hue-rotate(357deg) brightness(96%) contrast(110%)";
+    .querySelectorAll(".add-to-cart-btn-three")
+    .forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const product = productsThree[index];
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const isProductInCart = cart.some(
+          (item) => item.foodImage === product.foodImage
+        );
+
+        if (!isProductInCart) {
+          cart.push(product);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          cartCountThree++;
+          updateCartCountThree();
+        } else {
+          alert("Bu mahsulot allaqachon korzinada mavjud!");
+        }
+      });
+    });
+
+  const updateCartCountThree = () => {
+    const cartCountElement = document.querySelector(".cart-count");
+    if (cartCountElement) {
+      cartCountElement.style.display = "inline";
+      cartCountElement.textContent = JSON.parse(
+        localStorage.getItem("cart")
+      ).length;
+    }
+  };
+
+  if (localStorage.getItem("cart")) {
+    const cartItems = JSON.parse(localStorage.getItem("cart"));
+    cartCountThree = cartItems.length;
+    updateCartCountThree();
+  }
+}
+
+const cartContainerThree = document.querySelector(".cart-container");
+if (cartContainerThree) {
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const renderCartItemsThree = () => {
+    cartContainerThree.innerHTML = "";
+    cartItems.forEach((item) => {
+      const cartCard = `
+        <div class="cart-card">
+          <img src="${item.foodImage}" alt="food" />
+          <div class="cart-details">
+            <h3>${item.foodBoldPrice} ₽</h3>
+            <p>${item.foodSmallText}</p>
+            <p>${item.loremText}</p>
+            <button class="remove-from-cart-btn">O'chirish</button>
+          </div>
+        </div>
+      `;
+      cartContainerThree.innerHTML += cartCard;
+    });
+  };
+
+  renderCartItemsThree();
+
+  document
+    .querySelectorAll(".remove-from-cart-btn")
+    .forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const productToRemove = cartItems[index];
+        const updatedCart = cartItems.filter(
+          (item) => item.foodImage !== productToRemove.foodImage
+        );
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        renderCartItemsThree();
+        updateCartCountThree();
       });
     });
 }
